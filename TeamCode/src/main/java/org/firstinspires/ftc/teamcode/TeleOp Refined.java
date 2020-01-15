@@ -80,8 +80,8 @@ public class TeleOpTest extends LinearOpMode {
             }
 
             /*SET UP SLIDES*/
-            up = gamepad1.left_trigger + gamepad2.left_trigger;
-            down = gamepad1.right_trigger + gamepad2.right_trigger;
+            up = Range.clip(gamepad1.left_trigger + gamepad2.left_trigger, 0.0, 0.75);
+            down = Range.clip(gamepad1.right_trigger + gamepad2.right_trigger, 0.0, 0.75);
 
             if(up > 0.1) {
                 slides.setPower(up);
@@ -98,10 +98,8 @@ public class TeleOpTest extends LinearOpMode {
             rightFront.setPower(right);
             rightBack.setPower(right);
 
-
             if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
-
             }
             else if(gamepad1.left_bumper || gamepad2.left_bumper) {
                 clutch.setPosition(0.7);// position clutch to deliver stone
@@ -110,7 +108,6 @@ public class TeleOpTest extends LinearOpMode {
             if(gamepad1.a || gamepad2.a) {
                 autoClutch.setPosition(1);
             }
-
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
