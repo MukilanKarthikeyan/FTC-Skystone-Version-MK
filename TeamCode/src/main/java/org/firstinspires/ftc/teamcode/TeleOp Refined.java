@@ -23,8 +23,6 @@ public class TeleOpTest extends LinearOpMode {
     double turn;
     double max;
 
-    boolean wentUpOnce = false;
-
     DcMotor leftFront = null;
     DcMotor rightFront = null;
     DcMotor leftBack;
@@ -41,18 +39,6 @@ public class TeleOpTest extends LinearOpMode {
 
     Deadline gamepadRateLimit;
     private final int GAMEPAD_LOCKOUT = 500;
-
-    int numClickedUp = -1;
-    int numClickedDown = -1;
-
-    //double newTarget;
-    double counts;
-
-    double WHEEL_DIAMETER_INCHES = 4.0;
-    double COUNTS_PER_MOTOR_REV = 1680;
-    double GEAR_REDUCTION = 1.5; //should be 1.5
-
-
 
     public void runOpMode() throws InterruptedException {
         //robot = new HardwareBot(this);
@@ -87,7 +73,7 @@ public class TeleOpTest extends LinearOpMode {
             left = drive - turn;
             right = drive + turn;
 
-            max = Math.max(Math.abs(left), Math.abs(right));
+            max = Math.max(Math.abs(left), Math.abs(right)); // sets max to the greatest motor power
             if (max > 1.0) {
                 left /= max;
                 right /= max;
@@ -99,11 +85,9 @@ public class TeleOpTest extends LinearOpMode {
 
             if(up > 0.1) {
                 slides.setPower(up);
-
             }
             else if(down > 0.1) {
                 slides.setPower(-down); // the input values are positive so need to add negative
-
             }
             else {
                 slides.setPower(0);
@@ -115,11 +99,11 @@ public class TeleOpTest extends LinearOpMode {
             rightBack.setPower(right);
 
 
-            if(gamepad1.dpad_up || gamepad2.dpad_up) {
+            if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
 
             }
-            else if(gamepad1.dpad_down || gamepad2.dpad_down) {
+            else if(gamepad1.left_bumper || gamepad2.left_bumper) {
                 clutch.setPosition(0.7);// position clutch to deliver stone
             }
 
@@ -130,8 +114,6 @@ public class TeleOpTest extends LinearOpMode {
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
-
         }
     }
-
 }
