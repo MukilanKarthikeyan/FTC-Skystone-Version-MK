@@ -14,7 +14,7 @@ import org.firstinspires.ftc.robotcore.internal.system.Deadline;
 import java.util.concurrent.TimeUnit;
 
 @TeleOp
-public class TeleOpTest extends LinearOpMode {
+public class TeleOpRefined extends LinearOpMode {
 
     //HardwareBot robot;
     double left;
