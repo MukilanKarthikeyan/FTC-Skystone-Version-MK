@@ -33,8 +33,8 @@ public class TeleOpRefined extends LinearOpMode {
     DcMotor slides = null;
 
     Servo clutch = null;
-    double up;
-    double down;
+    double up = 0;
+    double down = 0;
     Servo autoClutch = null;
 
     Deadline gamepadRateLimit;
@@ -80,8 +80,8 @@ public class TeleOpRefined extends LinearOpMode {
             }
 
             /*SET UP SLIDES*/
-            up = Range.clip(gamepad1.left_trigger + gamepad2.left_trigger, 0.0, 0.75);
-            down = Range.clip(gamepad1.right_trigger + gamepad2.right_trigger, 0.0, 0.75);
+            up = Range.clip((gamepad1.right_trigger + gamepad2.right_trigger), 0.0, 0.75);
+            down = Range.clip((gamepad1.left_trigger + gamepad2.left_trigger), 0.0, 0.75);
 
             if(up > 0.1) {
                 slides.setPower(up);
