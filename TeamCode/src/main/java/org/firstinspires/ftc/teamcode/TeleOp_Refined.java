@@ -63,6 +63,8 @@ public class TeleOpRefined extends LinearOpMode {
         /*Initializing the clutch servos*/
         clutch = hardwareMap.get(Servo.class,"clutch");
         autoClutch = hardwareMap.servo.get("autoClutch");
+        foundLeft = hardwareMap.servo.get("foundLeft");
+        foundLeft = hardwareMap.servo.get("foundRight");
 
         gamepadRateLimit = new Deadline(GAMEPAD_LOCKOUT, TimeUnit.MILLISECONDS);
 
@@ -114,14 +116,14 @@ public class TeleOpRefined extends LinearOpMode {
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
-          /*  if(gamepad1.b|| gamepad2.b){
+           if(gamepad1.b|| gamepad2.b){
               foundLeft.setPosition(0);
               foundRight.setPosition(0);
             }
             if (gamepad1.a|| gamepad2.a){
               foundLeft.setPosition(0.5);
               foundRight.setPosition(0.5);
-            }*/
+            }
         }
     }
 }
