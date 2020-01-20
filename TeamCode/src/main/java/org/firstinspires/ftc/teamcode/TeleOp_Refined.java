@@ -36,6 +36,9 @@ public class TeleOpRefined extends LinearOpMode {
     double up = 0;
     double down = 0;
     Servo autoClutch = null;
+    Servo foundLeft = null;
+    Servo foundRight = null;
+
 
     Deadline gamepadRateLimit;
     private final int GAMEPAD_LOCKOUT = 500;
@@ -93,10 +96,10 @@ public class TeleOpRefined extends LinearOpMode {
                 slides.setPower(0);
             }
 
-            leftFront.setPower(left);
-            leftBack.setPower(left);
-            rightFront.setPower(right);
-            rightBack.setPower(right);
+            leftFront.setPower(left/0.75);
+            leftBack.setPower(left/0.75);
+            rightFront.setPower(right/0.75);
+            rightBack.setPower(right/0.75);
 
             if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
@@ -105,11 +108,19 @@ public class TeleOpRefined extends LinearOpMode {
                 clutch.setPosition(0.7);// position clutch to deliver stone
             }
 
-            if(gamepad1.a || gamepad2.a) {
+            if(gamepad1.y || gamepad2.y) {
                 autoClutch.setPosition(1);
             }
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
+            }
+            if(gamepad1.b|| gamepade2.b){
+              foundLeft.setPositon(0);
+              foundRight.setPositon(0);
+            }
+            if (gamepad1.a|| gamepad2.a){
+              foundLeft.setPostion(0.5);
+              foundRight.setPositon(0.5);
             }
         }
     }
