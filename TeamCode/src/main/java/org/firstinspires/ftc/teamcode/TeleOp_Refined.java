@@ -36,8 +36,8 @@ public class TeleOpRefined extends LinearOpMode {
     double up = 0;
     double down = 0;
     Servo autoClutch = null;
-    //Servo foundLeft = null;
-    //Servo foundRight = null;
+    Servo foundLeft = null;
+    Servo foundRight = null;
 
 
     Deadline gamepadRateLimit;
