@@ -96,10 +96,10 @@ public class TeleOpRefined extends LinearOpMode {
                 slides.setPower(0);
             }
 
-            leftFront.setPower(left/0.75);
-            leftBack.setPower(left/0.75);
-            rightFront.setPower(right/0.75);
-            rightBack.setPower(right/0.75);
+            leftFront.setPower(left/1.25);
+            leftBack.setPower(left/1.25);
+            rightFront.setPower(right/1.25);
+            rightBack.setPower(right/1.25);
 
             if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
