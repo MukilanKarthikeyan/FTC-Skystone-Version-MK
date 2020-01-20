@@ -70,8 +70,8 @@ public class TeleOpRefined extends LinearOpMode {
 
         while (!isStopRequested()) {
 
-            drive = -gamepad1.left_stick_y;
-            turn = gamepad1.right_stick_x;
+            drive = -gamepad1.left_stick_y - (gamepad2.left_stick_y/2);
+            turn = gamepad1.right_stick_x +( gamepad2.left_right_stick_x/2);
 
             left = drive - turn;
             right = drive + turn;
@@ -96,10 +96,10 @@ public class TeleOpRefined extends LinearOpMode {
                 slides.setPower(0);
             }
 
-            leftFront.setPower(left/1.25);
-            leftBack.setPower(left/1.25);
-            rightFront.setPower(right/1.25);
-            rightBack.setPower(right/1.25);
+            leftFront.setPower(left);
+            leftBack.setPower(left);
+            rightFront.setPower(right);
+            rightBack.setPower(right);
 
             if(gamepad1.right_bumper || gamepad2.right_bumper) {
                 clutch.setPosition(0.2); // position clutch to collect stone
