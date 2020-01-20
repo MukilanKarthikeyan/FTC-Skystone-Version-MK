@@ -71,7 +71,7 @@ public class TeleOpRefined extends LinearOpMode {
         while (!isStopRequested()) {
 
             drive = -gamepad1.left_stick_y - (gamepad2.left_stick_y/2);
-            turn = gamepad1.right_stick_x +( gamepad2.left_right_stick_x/2);
+            turn = gamepad1.right_stick_x +( gamepad2.right_stick_x/2);
 
             left = drive - turn;
             right = drive + turn;
@@ -114,13 +114,13 @@ public class TeleOpRefined extends LinearOpMode {
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
-            if(gamepad1.b|| gamepade2.b){
-              foundLeft.setPositon(0);
-              foundRight.setPositon(0);
+            if(gamepad1.b|| gamepad2.b){
+              foundLeft.setPosition(0);
+              foundRight.setPosition(0);
             }
             if (gamepad1.a|| gamepad2.a){
-              foundLeft.setPostion(0.5);
-              foundRight.setPositon(0.5);
+              foundLeft.setPosition(0.5);
+              foundRight.setPosition(0.5);
             }
         }
     }
