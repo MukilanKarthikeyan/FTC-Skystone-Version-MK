@@ -64,7 +64,7 @@ public class TeleOpRefined extends LinearOpMode {
         clutch = hardwareMap.get(Servo.class,"clutch");
         autoClutch = hardwareMap.servo.get("autoClutch");
         foundLeft = hardwareMap.servo.get("foundation");
-        foundLeft = hardwareMap.servo.get("foundation");
+        foundRight = hardwareMap.servo.get("foundation2");
 
         gamepadRateLimit = new Deadline(GAMEPAD_LOCKOUT, TimeUnit.MILLISECONDS);
 
