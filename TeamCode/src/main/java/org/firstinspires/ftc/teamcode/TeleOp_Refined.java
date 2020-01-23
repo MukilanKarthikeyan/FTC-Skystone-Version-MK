@@ -116,11 +116,11 @@ public class TeleOpRefined extends LinearOpMode {
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
-           if(gamepad1.b|| gamepad2.b){
+           if(gamepad1.dpad_up|| gamepad2.dpad_up){
               foundLeft.setPosition(0);
               foundRight.setPosition(0);
             }
-            if (gamepad1.a|| gamepad2.a){
+          if (gamepad1.dpad_down|| gamepad2.dpad_down){
               foundLeft.setPosition(0.5);
               foundRight.setPosition(0.5);
             }
