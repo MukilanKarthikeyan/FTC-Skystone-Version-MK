@@ -35,10 +35,10 @@ public class TeleOpRefined extends LinearOpMode {
     Servo clutch = null;
     double up = 0;
     double down = 0;
-    Servo autoClutch = null;/*
+    Servo autoClutch = null;
     Servo foundLeft = null;
     Servo foundRight = null;
-*/
+
 
     Deadline gamepadRateLimit;
     private final int GAMEPAD_LOCKOUT = 500;
@@ -106,12 +106,16 @@ public class TeleOpRefined extends LinearOpMode {
             rightFront.setPower(right);
             rightBack.setPower(right);
 
+
+
             if(gamepad1.right_bumper || gamepad2.dpad_up) {
                 clutch.setPosition(0.2); // position clutch to collect stone
             }
             else if(gamepad1.left_bumper || gamepad2.dpad_down) {
                 clutch.setPosition(0.7);// position clutch to deliver stone
             }
+
+
 
             if(gamepad1.y || gamepad2.y) {
                 autoClutch.setPosition(1);
@@ -120,35 +124,36 @@ public class TeleOpRefined extends LinearOpMode {
                 autoClutch.setPosition(0.4);
             }
 
+
+
            if(gamepad1.dpad_up|| gamepad2.b){
               foundLeft.setPosition(0.6);
               foundRight.setPosition(0.5);
             }
           if (gamepad1.dpad_down|| gamepad2.a){
-              foundLeft.setPosition(0.5);
-              foundRight.setPosition(0.6);
+              foundLeft.setPosition(0.4);
+              foundRight.setPosition(0.7);
             }
           if(gamepad1.dpad_right|| gamepad2.right_bumper){
-            foundLeft.setPosition(0);
             foundLeft.setPosition(1);
+            foundRight.setPosition(0);
           }
 
-            if(gamepad1.back||gamepad2.back){
+
+
+          if(gamepad1.back||gamepad2.back){
               //slides.setPower(0.1)
-              autoClutch.setPosition(1);
+              autoClutch.setPosition(0.4);
               //slides.setPower(0);
               //foundLeft.setPosition(0.5);
               //foundRight.setPosition(0.6);
-              autocClutch.setPosition(0.4);
+              autoClutch.setPosition(1);
               //foundLeft.setPosition(0);
               //foundRight.setPosition(1);
               //slides.setPower(-0.1);
               //slides.setPower(0);
 
-          }
-
-
-
+            }
         }
     }
 }
