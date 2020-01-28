@@ -63,10 +63,10 @@ public class TeleOpRefined extends LinearOpMode {
         /*Initializing the clutch servos*/
         clutch = hardwareMap.get(Servo.class,"clutch");
         autoClutch = hardwareMap.servo.get("autoClutch");
-        /*
-        foundLeft = hardwareMap.servo.get("foundation");
-        foundRight = hardwareMap.servo.get("foundation2");
-*/
+
+        foundLeft = hardwareMap.servo.get("foundation2");
+        foundRight = hardwareMap.servo.get("foundation");
+
         gamepadRateLimit = new Deadline(GAMEPAD_LOCKOUT, TimeUnit.MILLISECONDS);
 
         waitForStart();
@@ -119,15 +119,32 @@ public class TeleOpRefined extends LinearOpMode {
             if(gamepad1.x || gamepad2.x) {
                 autoClutch.setPosition(0.4);
             }
-            /*
+
            if(gamepad1.dpad_up|| gamepad2.dpad_up){
               foundLeft.setPosition(0);
-              foundRight.setPosition(0);
+              foundRight.setPosition(1);
             }
           if (gamepad1.dpad_down|| gamepad2.dpad_down){
               foundLeft.setPosition(0.5);
-              foundRight.setPosition(0.5);
-            }*/
+              foundRight.setPosition(0.6);
+            }
+            /*
+            if(gamepad1.back||gamepad2.back){
+              slides.setPower(0.1)
+              autoClutch.setPosition(1);
+              slides.setPower(0);
+              foundLeft.setPosition(0.5);
+              foundRight.setPosition(0.6);
+              autocClutch.setPosition(0.4)
+;              foundLeft.setPosition(0);
+              foundRight.setPosition(1);
+              slides.setPower(-0.1);
+              slides.setPower(0);
+
+          }
+            */
+
+
         }
     }
 }
