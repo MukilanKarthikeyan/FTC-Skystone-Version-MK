@@ -144,10 +144,15 @@ public class TeleOpRefined extends LinearOpMode {
           if(gamepad1.back||gamepad2.back){
               //slides.setPower(0.1)
               autoClutch.setPosition(0.4);
+              clutch.setPosition(0.2);
+              sleep(2000);
+              autoClutch.setPosition(1);
+              clutch.setPosition(0.7);
+
               //slides.setPower(0);
               //foundLeft.setPosition(0.5);
               //foundRight.setPosition(0.6);
-              autoClutch.setPosition(1);
+
               //foundLeft.setPosition(0);
               //foundRight.setPosition(1);
               //slides.setPower(-0.1);
