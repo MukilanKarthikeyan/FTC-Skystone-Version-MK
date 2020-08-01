@@ -35,8 +35,19 @@ public class MecanumAuto extends LinearOpMode {
             rightBack = hardwareMap.get(DcMotor.class, "rb");
             rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
     }
-    public void autoDrive(int x, int y, double turn) {
+    public void fwd(int dist){
 
+    }
+    public void rever(int dist){
+
+    }
+    public void strafe(int dist){
+        // if dist is positive strafes right, if dist is negative strafes left
+    }
+
+    public void drive(int x, int y, double turn) {
+        //calculations for the power to be applied to each wheel
+        // NOTE: these are what would be used for the telOP inputs form controller
         double leftFrontVal = y + turn + x;
         double leftBackVal = y + turn - x;
         double rightFrontVal = y - turn - x;
